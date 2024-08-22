@@ -1,5 +1,6 @@
 from os import getenv
 
+
 class Config:
     """
     App settings.

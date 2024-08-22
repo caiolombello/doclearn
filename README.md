@@ -69,6 +69,25 @@ To run this project, you will need `uv` installed on your machine. `uv` provides
    uv run main.py
    ```
 
+## Docker Usage
+
+To containerize the GitDoc AI application, you can use the provided Dockerfile. Below are the steps to build and run the Docker container:
+
+1. **Build the Docker Image**:
+   ```bash
+   docker build -t doclearn-app .
+   ```
+
+2. **Run the Docker Container**:
+   ```bash
+   docker run -d -p 8000:80 doclearn-app
+   ```
+
+   This command will start the application inside a Docker container and bind the container's port 80 to your machine's port 8000.
+
+3. **Access the Application**:
+   Once the container is running, you can access the API by navigating to `http://localhost:8000` in your web browser or using tools like `curl` or Postman.
+
 ## Usage
 
 ### API Endpoints
@@ -99,3 +118,11 @@ Contributions are welcome! Please feel free to submit a Pull Request or open an 
 
 For any inquiries or support, please contact:
 - **Email:** caio@lombello.com
+
+## Using the GPT with GitDoc AI
+
+You can also interact with this API using a pre-configured GPT model. Visit the following link to start using GitDoc AI with GPT:
+
+- [GitDoc AI GPT Interface](https://chatgpt.com/g/g-x15sx8ssK-gitdoc-ai)
+
+This link will take you to a custom GPT interface that uses the GitDoc AI API to provide insights and suggestions based on your GitHub documentation.
