@@ -1,5 +1,7 @@
 # GitDoc AI
 
+[![DocLearn CI/CD](https://github.com/caiolombello/doclearn/actions/workflows/main.yml/badge.svg)](https://github.com/caiolombello/doclearn/actions/workflows/main.yml)
+
 GitDoc AI is a Python application that provides an interface for interacting with the GitHub API. It allows users to perform various operations related to GitHub repositories, such as retrieving Markdown files, listing branches and tags, and fetching the contents of specific files.
 
 ## Overview
