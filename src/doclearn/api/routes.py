@@ -177,7 +177,7 @@ async def search_google_route(
     if not Config.google_search_enabled:
         raise HTTPException(
             status_code=403,
-            detail="Google search is disabled. Enable it in the configuration to use this feature."
+            detail="Google search is disabled. Enable it in the configuration to use this feature.",
         )
     try:
         results = await search_google(client, query, num_results)

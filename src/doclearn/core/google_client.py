@@ -13,11 +13,10 @@ async def search_google(
     client: httpx.AsyncClient, query: str, num_results: int = 10
 ) -> List[Dict[str, str]]:
     if not Config.google_search_enabled:
-        logger.warning("Google search is disabled. Enable it in the configuration to use this feature.")
-        raise HTTPException(
-            status_code=403,
-            detail="Google search is disabled"
+        logger.warning(
+            "Google search is disabled. Enable it in the configuration to use this feature."
         )
+        raise HTTPException(status_code=403, detail="Google search is disabled")
 
     url = "https://www.googleapis.com/customsearch/v1"
     params = {
