@@ -1,6 +1,6 @@
 [project]
 name = "doclearn"
-version = "1.2.0"
+version = "1.1.0"
 description = "A project that allows AI to learn and update through GitHub documentation."
 readme = "README.md"
 license = "MIT"
