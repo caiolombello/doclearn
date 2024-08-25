@@ -1,17 +1,17 @@
 ---
 
 title: Requests  
-description: 'Endpoints para gerenciamento de arquivos Markdown, informações de repositório e funcionalidades de pesquisa no GitHub.'
+description: 'Endpoints for managing Markdown files, repository information, and GitHub search functionalities.'
 
 ---
 
 # Requests
 
-Este documento contém exemplos de comandos `curl` para interagir com os endpoints da API, facilitando o uso das rotas para gerenciar arquivos Markdown, informações do repositório e realizar pesquisas.
+This document contains examples of `curl` commands to interact with the API endpoints, facilitating the use of routes for managing Markdown files, repository information, and performing searches.
 
 ### 1. `GET /markdowns/`
 
-Lista arquivos Markdown com opções de filtragem.
+Lists Markdown files with filtering options.
 
 ```bash
 curl -X GET "http://localhost:8000/markdowns/?owner=your_owner&repo=your_repo&ref=main&name_query=README&min_size=100&max_size=5000&min_date=2023-01-01T00:00:00&max_date=2024-01-01T00:00:00&path_query=docs/"
@@ -19,7 +19,7 @@ curl -X GET "http://localhost:8000/markdowns/?owner=your_owner&repo=your_repo&re
 
 ### 2. `GET /markdowns/{file_path:path}`
 
-Recupera o conteúdo de um arquivo Markdown específico.
+Retrieves the content of a specific Markdown file.
 
 ```bash
 curl -X GET "http://localhost:8000/markdowns/docs/some_file.md?owner=your_owner&repo=your_repo&ref=main"
@@ -27,7 +27,7 @@ curl -X GET "http://localhost:8000/markdowns/docs/some_file.md?owner=your_owner&
 
 ### 3. `GET /markdowns/all/`
 
-Recupera o conteúdo de todos os arquivos Markdown no repositório.
+Retrieves the content of all Markdown files in the repository.
 
 ```bash
 curl -X GET "http://localhost:8000/markdowns/all/?owner=your_owner&repo=your_repo&ref=main"
@@ -35,7 +35,7 @@ curl -X GET "http://localhost:8000/markdowns/all/?owner=your_owner&repo=your_rep
 
 ### 4. `GET /branches/`
 
-Lista todas as branches do repositório.
+Lists all branches of the repository.
 
 ```bash
 curl -X GET "http://localhost:8000/branches/?owner=your_owner&repo=your_repo"
@@ -43,7 +43,7 @@ curl -X GET "http://localhost:8000/branches/?owner=your_owner&repo=your_repo"
 
 ### 5. `GET /tags/`
 
-Lista todas as tags do repositório.
+Lists all tags of the repository.
 
 ```bash
 curl -X GET "http://localhost:8000/tags/?owner=your_owner&repo=your_repo"
@@ -51,7 +51,7 @@ curl -X GET "http://localhost:8000/tags/?owner=your_owner&repo=your_repo"
 
 ### 6. `GET /search/repositories`
 
-Pesquisa repositórios no GitHub.
+Searches for repositories on GitHub.
 
 ```bash
 curl -X GET "http://localhost:8000/search/repositories?query=fastapi&sort=stars&order=desc&per_page=10&page=1"
@@ -59,16 +59,16 @@ curl -X GET "http://localhost:8000/search/repositories?query=fastapi&sort=stars&
 
 ### 7. `GET /search/content`
 
-Pesquisa conteúdo em arquivos Markdown de um repositório específico.
+Searches for content in Markdown files of a specific repository.
 
 ```bash
 curl -X GET "http://localhost:8000/search/content?query=fastapi&owner=your_owner&repo=your_repo&ref=main"
 ```
 
-Substitua `your_owner` e `your_repo` pelos nomes apropriados do proprietário e do repositório ao fazer as requisições.
+Replace `your_owner` and `your_repo` with the appropriate owner and repository names when making requests.
 
-## Notas
+## Notes
 
-- Todos os endpoints requerem autenticação. Certifique-se de incluir o token de acesso apropriado nos cabeçalhos da requisição.
-- Os parâmetros de consulta podem ser combinados para refinar os resultados da pesquisa.
-- Para endpoints que aceitam um caminho de arquivo (`file_path`), certifique-se de codificar corretamente o caminho na URL.
+- All endpoints require authentication. Make sure to include the appropriate access token in the request headers.
+- Query parameters can be combined to refine search results.
+- For endpoints that accept a file path (`file_path`), ensure that the path is correctly encoded in the URL.

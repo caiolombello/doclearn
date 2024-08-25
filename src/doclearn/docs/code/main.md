@@ -1,13 +1,13 @@
 ---
 title: main.py
-description: 'Arquivo principal que inicializa a aplicação FastAPI e inclui as rotas definidas.'
+description: 'Main file that initializes the FastAPI application and includes the defined routes.'
 ---
 
 # main.py
 
-O arquivo `main.py` é o ponto de entrada da aplicação, responsável por inicializar o servidor FastAPI e incluir as rotas definidas em outros módulos.
+The `main.py` file is the entry point of the application, responsible for initializing the FastAPI server and including the routes defined in other modules.
 
-## Estrutura do Código
+## Code Structure
 
 ```python
 from fastapi import FastAPI
@@ -15,23 +15,25 @@ from doclearn.api.routes import router
 
 app = FastAPI()
 
-# Inclui as rotas definidas no módulo routes
+# Includes the routes defined in the routes module
 app.include_router(router)
 ```
 
-### Importações
 
-- `FastAPI`: Classe principal que cria a aplicação.
-- `router`: Objeto que contém as rotas definidas, importado do módulo `routes`.
 
-### Inicialização da Aplicação
+### Imports
 
-- `app = FastAPI()`: Cria uma instância da aplicação FastAPI.
+- `FastAPI`: Main class that creates the application.
+- `router`: Object containing the defined routes, imported from the `routes` module.
 
-### Inclusão de Rotas
+### Application Initialization
 
-- `app.include_router(router)`: Adiciona as rotas definidas no módulo `routes` à aplicação. Isso permite que a aplicação responda a requisições HTTP nas rotas especificadas.
+- `app = FastAPI()`: Creates an instance of the FastAPI application.
 
-## Considerações
+### Route Inclusion
 
-Este arquivo é essencial para o funcionamento da aplicação, pois configura o servidor e as rotas que serão utilizadas. Certifique-se de que as rotas no módulo `routes` estejam corretamente definidas para garantir o funcionamento adequado da API.
+- `app.include_router(router)`: Adds the routes defined in the `routes` module to the application. This allows the application to respond to HTTP requests on the specified routes.
+
+## Considerations
+
+This file is essential for the application's operation, as it configures the server and the routes that will be used. Make sure that the routes in the `routes` module are correctly defined to ensure proper API functionality.

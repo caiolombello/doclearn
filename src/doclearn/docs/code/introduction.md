@@ -1,94 +1,101 @@
-# Projeto de Integração com API do GitHub
+# DocLearn
 
-Este projeto é uma aplicação Python que fornece uma interface para interagir com a API do GitHub, permitindo operações como listagem de arquivos Markdown, obtenção de conteúdo, e listagem de branches e tags de um repositório.
+This project is a Python application that provides an interface to interact with the GitHub API, allowing operations such as listing Markdown files, retrieving content, and listing branches and tags of a repository.
 
-## Visão Geral
+## Overview
 
-O objetivo principal do projeto é permitir que os usuários realizem operações relacionadas ao GitHub de forma simples e eficiente. A aplicação é dividida em duas partes principais: a API, que gerencia as rotas e requisições, e a lógica de negócios, que contém as funcionalidades principais do projeto.
+The main objective of the project is to allow users to perform GitHub-related operations in a simple and efficient manner. The application is divided into two main parts: the API, which manages routes and requests, and the business logic, which contains the core functionalities of the project.
 
-## Estrutura do Projeto
+## Project Structure
 
-- **`main.py`**: Ponto de entrada da aplicação.
-- **`api/`**: Contém a implementação das rotas da API.
-  - **`routes.py`**: Define as rotas e os manipuladores de requisições.
-- **`core/`**: Contém a lógica de negócios e funcionalidades principais.
-  - **`filters.py`**: Implementa filtros para processar dados.
-  - **`github_client.py`**: Gerencia a comunicação com a API do GitHub.
-- **`docs/`**: Contém a documentação do projeto.
-  - **`introduction.md`**: Visão geral do projeto, requisitos, e instruções para execução.
+- **`main.py`**: Entry point of the application.
+- **`api/`**: Contains the implementation of API routes.
+  - **`routes.py`**: Defines routes and request handlers.
+- **`core/`**: Contains the business logic and main functionalities.
+  - **`filters.py`**: Implements filters for processing data.
+  - **`github_client.py`**: Manages communication with the GitHub API.
+- **`docs/`**: Contains project documentation.
+  - **`introduction.md`**: Project overview, requirements, and execution instructions.
 
-## Requisitos
+## Requirements
 
 - Python 3.x
-- [uv](https://astral.sh/uv/) para gerenciar e executar o ambiente.
+- [uv](https://astral.sh/uv/) for managing and executing the environment.
 
-## Instalação e Execução
+## Installation and Execution
 
-### Passo 1: Clonar o Repositório
+### Step 1: Clone the Repository
 
-Clone o repositório em sua máquina local usando o comando:
+Clone the repository to your local machine using the command:
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
+git clone https://github.com/caiolombello/doclearn.git
+cd doclearn
 ```
 
-### Passo 2: Instalar e Configurar o uv
 
-Instale o `uv` seguindo as instruções abaixo:
+### Step 2: Install and Configure uv
 
-#### Para macOS e Linux:
+Install `uv` following the instructions below:
+
+#### For macOS and Linux:
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-#### Para Windows:
+
+#### For Windows:
 
 ```powershell
 powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
-### Passo 3: Criar o Ambiente Virtual com uv
 
-Crie um ambiente virtual usando o `uv`:
+### Step 3: Create Virtual Environment with uv
+
+Create a virtual environment using `uv`:
 
 ```bash
-uv -n nome_do_projeto
+uv -n project_name
 ```
 
-Ative o ambiente virtual criado:
+
+Activate the created virtual environment:
 
 ```bash
 uv
 ```
 
-### Passo 4: Instalar Dependências
 
-Instale as dependências necessárias dentro do ambiente `uv`:
+### Step 4: Install Dependencies
+
+Install the necessary dependencies within the `uv` environment:
 
 ```bash
 uv run pip install -r requirements.txt
 ```
 
-### Passo 5: Executar a Aplicação
 
-Inicie a aplicação:
+### Step 5: Run the Application
+
+Start the application:
 
 ```bash
 uv run python main.py
 ```
 
-A aplicação estará disponível em `http://localhost:8000`.
 
-## Uso
+The application will be available at `http://localhost:8000`.
 
-A aplicação expõe uma série de endpoints para interagir com a API do GitHub. Veja a [documentação](src/doclearn/docs/code/introduction.md) para mais detalhes sobre como utilizar esses endpoints.
+## Usage
 
-## Licença
+The application exposes a series of endpoints to interact with the GitHub API. See the [documentation](src/doclearn/docs/code/introduction.md) for more details on how to use these endpoints.
 
-Este projeto está licenciado sob a [Licença MIT](LICENSE).
+## License
 
-## Contribuição
+This project is licensed under the [MIT License](LICENSE).
 
-Contribuições são bem-vindas! Se você deseja contribuir, por favor, faça um fork do repositório, crie uma branch para suas alterações e envie um pull request.
+## Contribution
+
+Contributions are welcome! If you wish to contribute, please fork the repository, create a branch for your changes, and submit a pull request.

@@ -1,33 +1,34 @@
 ---
-title: filters
-description: 'Funções para filtrar arquivos Markdown com base em critérios específicos.'
+title: Filters
+description: 'Functions for filtering Markdown files based on specific criteria.'
 ---
 
 # filters.py
 
-Este módulo contém a função `filter_markdown_files`, que permite filtrar uma lista de arquivos Markdown com base em critérios como nome, tamanho, data de modificação e caminho.
+This module contains the `filter_markdown_files` function, which allows filtering a list of Markdown files based on criteria such as name, size, modification date, and path.
 
-## Função: filter_markdown_files
+## Function: filter_markdown_files
 
 ```python
 def filter_markdown_files(md_files, name_query=None, min_size=None, max_size=None, min_date=None, max_date=None, path_query=None):
 ```
 
-### Parâmetros
 
-- `md_files` (list): Uma lista de dicionários representando arquivos Markdown. Cada dicionário deve conter as chaves `name`, `size` e `last_modified`.
-- `name_query` (str, opcional): Uma string para filtrar arquivos pelo nome. Apenas arquivos cujo nome contém essa string (ignorando maiúsculas/minúsculas) serão incluídos.
-- `min_size` (int, opcional): O tamanho mínimo do arquivo em bytes. Apenas arquivos maiores ou iguais a esse tamanho serão incluídos.
-- `max_size` (int, opcional): O tamanho máximo do arquivo em bytes. Apenas arquivos menores ou iguais a esse tamanho serão incluídos.
-- `min_date` (datetime, opcional): A data mínima de modificação. Apenas arquivos modificados após essa data serão incluídos.
-- `max_date` (datetime, opcional): A data máxima de modificação. Apenas arquivos modificados antes dessa data serão incluídos.
-- `path_query` (str, opcional): Uma string para filtrar arquivos pelo caminho. Apenas arquivos cujo caminho contém essa string (ignorando maiúsculas/minúsculas) serão incluídos.
+### Parameters
 
-### Retorno
+- `md_files` (list): A list of dictionaries representing Markdown files. Each dictionary should contain the keys `name`, `size`, and `last_modified`.
+- `name_query` (str, optional): A string to filter files by name. Only files whose name contains this string (case-insensitive) will be included.
+- `min_size` (int, optional): The minimum file size in bytes. Only files larger than or equal to this size will be included.
+- `max_size` (int, optional): The maximum file size in bytes. Only files smaller than or equal to this size will be included.
+- `min_date` (datetime, optional): The minimum modification date. Only files modified after this date will be included.
+- `max_date` (datetime, optional): The maximum modification date. Only files modified before this date will be included.
+- `path_query` (str, optional): A string to filter files by path. Only files whose path contains this string (case-insensitive) will be included.
 
-- (list): Uma lista de arquivos que atendem aos critérios de filtragem especificados.
+### Return
 
-### Exemplo de Uso
+- (list): A list of files that meet the specified filtering criteria.
+
+### Usage Example
 
 ```python
 from datetime import datetime
@@ -40,4 +41,5 @@ md_files = [
 filtered = filter_markdown_files(md_files, name_query="example", min_size=1000, min_date=datetime(2023, 9, 1))
 ```
 
-Neste exemplo, a função `filter_markdown_files` retornará todos os arquivos que contêm "example" no nome, têm um tamanho maior ou igual a 1000 bytes e foram modificados após 1º de setembro de 2023.
+
+In this example, the `filter_markdown_files` function will return all files that contain "example" in the name, have a size greater than or equal to 1000 bytes, and were modified after September 1, 2023.

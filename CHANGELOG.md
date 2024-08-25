@@ -1,29 +1,41 @@
 # Changelog
 
-Todas as mudanças notáveis neste projeto serão documentadas neste arquivo.
+All notable changes to this project will be documented in this file.
 
-O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
-e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR/).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [1.2.0] - 2024-08-25
+
+### Added
+
+- feat(api): Implemented new routes for repository and content search
+- docs: Updated documentation to reflect new API functionalities
+
+### Changed
+
+- refactor: Improved code structure for better clarity and maintainability
 
 ## [1.1.0] - 2024-08-24
 
-### Adicionado
+### Added
 
-- ✨ feat(core/github_client): Implementada rotação de tokens para requisições à API do GitHub para lidar com limites de taxa.
+- ✨ feat(core/github_client): Implemented token rotation for GitHub API requests to handle rate limits
 
-### Corrigido
+### Fixed
 
-- ⬇️ fix(dependencies): Downgrade do `cz_conventional_commits` da versão 1.2.0 para 1.1.0.
-- 🔖 fix(version): Downgrade da versão de 1.2.0 para 1.1.0 no `pyproject.toml`.
+- ⬇️ fix(dependencies): Downgraded `cz_conventional_commits` from version 1.2.0 to 1.1.0
+- 🔖 fix(version): Downgraded version from 1.2.0 to 1.1.0 in `pyproject.toml`
 
 ## [1.0.0] - 2024-08-22
 
-### Adicionado
+### Added
 
-- 🎉 feat(initial-setup): Inicializado o projeto com estrutura básica, incluindo rotas de API, lógica principal e documentação.
-- ✨ feat(api): Adicionadas rotas iniciais da API para gerenciar arquivos Markdown e informações do repositório.
-- ✨ feat(docker): Adicionado Dockerfile e atualizadas dependências para uvicorn.
-- ✨ feat(docs): Adicionadas instruções de uso do Docker e link de integração GPT ao README.
+- 🎉 feat(initial-setup): Initialized project with basic structure, including API routes, core logic, and documentation
+- ✨ feat(api): Added initial API routes for managing Markdown files and repository information
+- ✨ feat(docker): Added Dockerfile and updated dependencies for uvicorn
+- ✨ feat(docs): Added Docker usage instructions and GPT integration link to README
 
+[1.2.0]: https://github.com/caiolombello/doclearn/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/caiolombello/doclearn/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/caiolombello/doclearn/releases/tag/v1.0.0

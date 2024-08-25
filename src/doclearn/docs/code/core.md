@@ -1,18 +1,18 @@
 ---
 title: core
-description: 'Diretório principal que contém a lógica central do projeto, incluindo filtros e integração com o GitHub.'
+description: 'Main directory containing the project's central logic, including filters and GitHub integration.'
 ---
 
 # core
 
-O diretório `core` é responsável por abrigar a lógica central do projeto. Ele contém módulos que implementam funcionalidades essenciais, como filtros de dados e a comunicação com a API do GitHub.
+The `core` directory is responsible for housing the central logic of the project. It contains modules that implement essential functionalities, such as data filters and communication with the GitHub API.
 
-## Estrutura do Diretório
+## Directory Structure
 
-- **filters.py**: Este módulo contém funções e classes que aplicam filtros a dados, permitindo a manipulação e a extração de informações relevantes.
+- **filters.py**: This module contains functions and classes that apply filters to data, allowing for the manipulation and extraction of relevant information.
   
-- **github_client.py**: Este módulo é responsável pela integração com a API do GitHub, facilitando operações como autenticação, requisições de dados e manipulação de repositórios.
+- **github_client.py**: This module is responsible for integration with the GitHub API, facilitating operations such as authentication, data requests, and repository manipulation.
 
-## Considerações
+## Considerations
 
-A organização do diretório `core` é fundamental para a manutenção e escalabilidade do projeto. Cada módulo deve ser projetado para ser reutilizável e testável, garantindo que a lógica central permaneça clara e eficiente.
+The organization of the `core` directory is fundamental for the maintenance and scalability of the project. Each module should be designed to be reusable and testable, ensuring that the central logic remains clear and efficient.

@@ -1,146 +1,146 @@
 ---
 title: github_client
-description: 'Cliente assíncrono para interagir com a API do GitHub, permitindo a busca de arquivos Markdown, conteúdo de arquivos, branches, tags e pesquisa de repositórios.'
+description: 'Asynchronous client for interacting with the GitHub API, allowing the retrieval of Markdown files, file content, branches, tags, and repository search.'
 ---
 
 # github_client
 
-Este módulo fornece funções assíncronas para interagir com a API do GitHub, permitindo a busca de arquivos Markdown, conteúdo de arquivos, branches, tags e pesquisa de repositórios.
+This module provides asynchronous functions to interact with the GitHub API, allowing the retrieval of Markdown files, file content, branches, tags, and repository search.
 
-## Configurações e Utilitários
+## Configuration and Utilities
 
-- `token_cycle`: Um ciclo de tokens de acesso do GitHub para lidar com limites de taxa.
-- `get_next_token()`: Retorna o próximo token disponível do ciclo.
-- `get_github_client()`: Cria e retorna um cliente HTTP assíncrono.
+- `token_cycle`: A cycle of GitHub access tokens to handle rate limits.
+- `get_next_token()`: Returns the next available token from the cycle.
+- `get_github_client()`: Creates and returns an asynchronous HTTP client.
 
-## Funções de Requisição
+## Request Functions
 
 ### `make_github_request(client, url)`
 
-Realiza uma requisição à API do GitHub, alternando tokens em caso de limite de taxa.
+Makes a request to the GitHub API, alternating tokens in case of rate limit.
 
-#### Parâmetros
+#### Parameters
 
-- `client`: Instância do cliente HTTP assíncrono.
-- `url`: URL da requisição.
+- `client`: Instance of the asynchronous HTTP client.
+- `url`: Request URL.
 
-#### Retorno
+#### Return
 
-Retorna a resposta da requisição ou lança uma exceção em caso de erro.
+Returns the request response or raises an exception in case of error.
 
-## Funções de Busca de Arquivos e Conteúdo
+## File and Content Retrieval Functions
 
 ### `fetch_markdown_files(client, owner, repo, path="", ref="main")`
 
-Busca arquivos Markdown em um repositório GitHub.
+Retrieves Markdown files from a GitHub repository.
 
-#### Parâmetros
+#### Parameters
 
-- `client`: Instância do cliente HTTP assíncrono.
-- `owner`: Proprietário do repositório.
-- `repo`: Nome do repositório.
-- `path`: Caminho do diretório a ser pesquisado (padrão é "").
-- `ref`: A referência do branch (padrão é "main").
+- `client`: Instance of the asynchronous HTTP client.
+- `owner`: Repository owner.
+- `repo`: Repository name.
+- `path`: Directory path to search (default is "").
+- `ref`: Branch reference (default is "main").
 
-#### Retorno
+#### Return
 
-Retorna uma lista de arquivos Markdown encontrados.
+Returns a list of found Markdown files.
 
 ### `fetch_file_content(client, owner, repo, file_path, ref="main")`
 
-Busca o conteúdo de um arquivo específico no repositório.
+Retrieves the content of a specific file in the repository.
 
-#### Parâmetros
+#### Parameters
 
-- `client`: Instância do cliente HTTP assíncrono.
-- `owner`: Proprietário do repositório.
-- `repo`: Nome do repositório.
-- `file_path`: Caminho do arquivo a ser buscado.
-- `ref`: A referência do branch (padrão é "main").
+- `client`: Instance of the asynchronous HTTP client.
+- `owner`: Repository owner.
+- `repo`: Repository name.
+- `file_path`: Path of the file to be retrieved.
+- `ref`: Branch reference (default is "main").
 
-#### Retorno
+#### Return
 
-Retorna o conteúdo do arquivo decodificado em formato de string.
+Returns the file content decoded as a string.
 
-#### Exceções
+#### Exceptions
 
-- Lança `HTTPException` com status 404 se o arquivo não for encontrado.
+- Raises `HTTPException` with status 404 if the file is not found.
 
-## Funções de Busca de Informações do Repositório
+## Repository Information Retrieval Functions
 
 ### `fetch_branches(client, owner, repo)`
 
-Busca todos os branches do repositório.
+Retrieves all branches of the repository.
 
-#### Parâmetros
+#### Parameters
 
-- `client`: Instância do cliente HTTP assíncrono.
-- `owner`: Proprietário do repositório.
-- `repo`: Nome do repositório.
+- `client`: Instance of the asynchronous HTTP client.
+- `owner`: Repository owner.
+- `repo`: Repository name.
 
-#### Retorno
+#### Return
 
-Retorna uma lista com os nomes dos branches.
+Returns a list with the names of the branches.
 
 ### `fetch_tags(client, owner, repo)`
 
-Busca todas as tags do repositório.
+Retrieves all tags of the repository.
 
-#### Parâmetros
+#### Parameters
 
-- `client`: Instância do cliente HTTP assíncrono.
-- `owner`: Proprietário do repositório.
-- `repo`: Nome do repositório.
+- `client`: Instance of the asynchronous HTTP client.
+- `owner`: Repository owner.
+- `repo`: Repository name.
 
-#### Retorno
+#### Return
 
-Retorna uma lista com os nomes das tags.
+Returns a list with the names of the tags.
 
-## Funções de Pesquisa
+## Search Functions
 
 ### `search_repositories(client, query, sort="stars", order="desc", per_page=30, page=1)`
 
-Pesquisa repositórios no GitHub com base em uma query.
+Searches for repositories on GitHub based on a query.
 
-#### Parâmetros
+#### Parameters
 
-- `client`: Instância do cliente HTTP assíncrono.
-- `query`: Termo de pesquisa.
-- `sort`: Campo para ordenação (padrão é "stars").
-- `order`: Ordem de classificação (padrão é "desc").
-- `per_page`: Número de resultados por página (padrão é 30).
-- `page`: Número da página (padrão é 1).
+- `client`: Instance of the asynchronous HTTP client.
+- `query`: Search term.
+- `sort`: Field for sorting (default is "stars").
+- `order`: Sort order (default is "desc").
+- `per_page`: Number of results per page (default is 30).
+- `page`: Page number (default is 1).
 
-#### Retorno
+#### Return
 
-Retorna um dicionário com o total de resultados e uma lista de repositórios encontrados.
+Returns a dictionary with the total count of results and a list of found repositories.
 
 ### `search_markdown_content(client, owner, repo, query, ref="main")`
 
-Pesquisa conteúdo em arquivos Markdown de um repositório específico.
+Searches for content in Markdown files of a specific repository.
 
-#### Parâmetros
+#### Parameters
 
-- `client`: Instância do cliente HTTP assíncrono.
-- `owner`: Proprietário do repositório.
-- `repo`: Nome do repositório.
-- `query`: Termo de pesquisa.
-- `ref`: A referência do branch (padrão é "main").
+- `client`: Instance of the asynchronous HTTP client.
+- `owner`: Repository owner.
+- `repo`: Repository name.
+- `query`: Search term.
+- `ref`: Branch reference (default is "main").
 
-#### Retorno
+#### Return
 
-Retorna uma lista de dicionários contendo informações sobre os arquivos Markdown que contêm a query.
+Returns a list of dictionaries containing information about Markdown files that contain the query.
 
 ### `extract_excerpt(content, query, context_length=100)`
 
-Extrai um trecho do conteúdo ao redor da ocorrência da query.
+Extracts an excerpt of the content around the query occurrence.
 
-#### Parâmetros
+#### Parameters
 
-- `content`: Conteúdo do arquivo.
-- `query`: Termo de pesquisa.
-- `context_length`: Número de caracteres de contexto (padrão é 100).
+- `content`: File content.
+- `query`: Search term.
+- `context_length`: Number of context characters (default is 100).
 
-#### Retorno
+#### Return
 
-Retorna um trecho do conteúdo com a query destacada.
+Returns an excerpt of the content with the query highlighted.

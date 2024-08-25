@@ -1,6 +1,6 @@
 ---
 
-title: routes  
+title: Routes  
 description: 'Endpoints for handling Markdown files, repository information, and GitHub search functionality.'
 
 ---

@@ -42,7 +42,6 @@ async def make_github_request(client: httpx.AsyncClient, url: str) -> httpx.Resp
     )
 
 
-# Funções de busca de arquivos e conteúdo
 async def fetch_markdown_files(
     client: httpx.AsyncClient, owner: str, repo: str, path: str = "", ref: str = "main"
 ) -> List[Dict]:
@@ -87,7 +86,6 @@ async def fetch_file_content(
     return decoded_content
 
 
-# Funções de busca de informações do repositório
 async def fetch_branches(client: httpx.AsyncClient, owner: str, repo: str) -> List[str]:
     url = f"https://api.github.com/repos/{owner}/{repo}/branches"
 
@@ -112,7 +110,6 @@ async def fetch_tags(client: httpx.AsyncClient, owner: str, repo: str) -> List[s
     return tags
 
 
-# Funções de pesquisa
 async def search_repositories(
     client: httpx.AsyncClient,
     query: str,

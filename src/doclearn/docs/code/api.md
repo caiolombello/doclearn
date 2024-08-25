@@ -1,17 +1,17 @@
 ---
 title: api
-description: 'Diretório que contém as rotas da API do projeto.'
+description: 'Directory containing the project's API routes.'
 ---
 
 # api
 
-O diretório `api` é responsável por gerenciar as rotas da API do projeto. Ele contém todos os endpoints que permitem a interação com os recursos do sistema. A estrutura deste diretório é projetada para facilitar a manutenção e a escalabilidade da aplicação.
+The `api` directory is responsible for managing the project's API routes. It contains all the endpoints that allow interaction with the system's resources. The structure of this directory is designed to facilitate maintenance and scalability of the application.
 
-## Estrutura do Diretório
+## Directory Structure
 
-- **routes.py**: Este arquivo contém a definição das rotas da API, incluindo os métodos HTTP e os manipuladores de requisições correspondentes.
+- **routes.py**: This file contains the definition of the API routes, including HTTP methods and corresponding request handlers.
 
-## Considerações
+## Considerations
 
-- Certifique-se de que todas as rotas estejam devidamente documentadas e testadas.
-- Mantenha a organização das rotas para facilitar a navegação e a compreensão do código.
+- Ensure that all routes are properly documented and tested.
+- Maintain the organization of routes to facilitate navigation and code comprehension.
