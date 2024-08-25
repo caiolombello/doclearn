@@ -21,6 +21,7 @@ The project is organized into two main components: the API and the business logi
 - `core/`: Contains the core business logic and functionalities.
   - `filters.py`: Implements filters to process data.
   - `github_client.py`: Manages communication with the GitHub API.
+  - `google_client.py`: Manages communication with the Google Custom Search API.
 - `config/`: Configuration files and settings.
 
 ## Requirements
