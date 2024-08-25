@@ -8,21 +8,28 @@ logger = logging.getLogger(__name__)
 
 token_cycle = cycle(Config.tokens)
 
+
 def get_next_token():
     return next(token_cycle)
+
 
 async def make_github_request(client, url):
     for _ in range(len(Config.tokens)):
         token = get_next_token()
         headers = {"Authorization": f"token {token}"} if token else {}
-        
+
         response = await client.get(url, headers=headers)
         if response.status_code != 403:  # Não é um erro de limite de taxa
             return response
-        
-        logger.warning(f"Rate limit atingido para o token atual. Alternando para o próximo token.")
-    
-    raise HTTPException(status_code=429, detail="Limite de taxa excedido para todos os tokens")
+
+        logger.warning(
+            f"Rate limit atingido para o token atual. Alternando para o próximo token."
+        )
+
+    raise HTTPException(
+        status_code=429, detail="Limite de taxa excedido para todos os tokens"
+    )
+
 
 async def fetch_markdown_files(client, owner, repo, path="", ref="main"):
     url = f"https://api.github.com/repos/{owner}/{repo}/contents/{path}?ref={ref}"
@@ -46,6 +53,7 @@ async def fetch_markdown_files(client, owner, repo, path="", ref="main"):
     logger.info(f"Total de arquivos markdown encontrados: {len(md_files)}")
     return md_files
 
+
 async def fetch_file_content(client, owner, repo, file_path, ref="main"):
     url = f"https://api.github.com/repos/{owner}/{repo}/contents/{file_path}?ref={ref}"
 
@@ -62,6 +70,7 @@ async def fetch_file_content(client, owner, repo, file_path, ref="main"):
     logger.info(f"Conteúdo do arquivo {file_path} recuperado com sucesso.")
     return decoded_content
 
+
 async def fetch_branches(client, owner, repo):
     url = f"https://api.github.com/repos/{owner}/{repo}/branches"
 
@@ -72,6 +81,7 @@ async def fetch_branches(client, owner, repo):
     branches = [branch["name"] for branch in response.json()]
     logger.info(f"Total de branches encontradas: {len(branches)}")
     return branches
+
 
 async def fetch_tags(client, owner, repo):
     url = f"https://api.github.com/repos/{owner}/{repo}/tags"
