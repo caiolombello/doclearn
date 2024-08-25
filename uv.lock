@@ -37,6 +37,15 @@ wheels = [
 ]
 
 [[package]]
+name = "attrs"
+version = "24.2.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/fc/0f/aafca9af9315aee06a89ffde799a10a582fe8de76c563ee80bbcdc08b3fb/attrs-24.2.0.tar.gz", hash = "sha256:5cfb1b9148b5b086569baec03f20d7b6bf3bcacc9a42bebf87ffaaca362f6346", size = 792678 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/6a/21/5b6702a7f963e95456c0de2d495f67bf5fd62840ac655dc451586d23d39a/attrs-24.2.0-py3-none-any.whl", hash = "sha256:81921eb96de3191c8258c199618104dd27ac608d9366f5e35d011eae1867ede2", size = 63001 },
+]
+
+[[package]]
 name = "certifi"
 version = "2024.7.4"
 source = { registry = "https://pypi.org/simple" }
@@ -127,6 +136,20 @@ wheels = [
 ]
 
 [[package]]
+name = "cz-conventional-gitmoji"
+version = "0.3.3"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "attrs" },
+    { name = "commitizen" },
+    { name = "setuptools", marker = "python_full_version >= '3.12'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/23/ad/0497ad48377d29708f64a5898410a65b71ee2e8378eb085d5c4704729c78/cz_conventional_gitmoji-0.3.3.tar.gz", hash = "sha256:de3787511fdecea6693a4e6d212fe3f36425219267b731e2fd05788dbaf735dc", size = 12376 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/6d/4a/fadcca29059f2a786254de242ab1f7e497051565e21abeb73fa97719f080/cz_conventional_gitmoji-0.3.3-py3-none-any.whl", hash = "sha256:05ba50fcd86de8efe7c85f0e2230dffbe08c9cdc5d768f41403ce943aef333cb", size = 13148 },
+]
+
+[[package]]
 name = "decli"
 version = "0.6.2"
 source = { registry = "https://pypi.org/simple" }
@@ -137,7 +160,7 @@ wheels = [
 
 [[package]]
 name = "doclearn"
-version = "1.1.0"
+version = "1.2.0"
 source = { editable = "." }
 dependencies = [
     { name = "fastapi" },
@@ -147,7 +170,7 @@ dependencies = [
 
 [package.dev-dependencies]
 dev = [
-    { name = "commitizen" },
+    { name = "cz-conventional-gitmoji" },
 ]
 
 [package.metadata]
@@ -158,7 +181,7 @@ requires-dist = [
 ]
 
 [package.metadata.requires-dev]
-dev = [{ name = "commitizen", specifier = ">=3.29.0" }]
+dev = [{ name = "cz-conventional-gitmoji", specifier = ">=0.3.3" }]
 
 [[package]]
 name = "fastapi"
@@ -388,6 +411,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/84/d0/d73525aeba800df7030ac187d09c59dc40df1c878b4fab8669bdc805535d/questionary-2.0.1.tar.gz", hash = "sha256:bcce898bf3dbb446ff62830c86c5c6fb9a22a54146f0f5597d3da43b10d8fc8b", size = 24726 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/0b/e7/2dd8f59d1d328773505f78b85405ddb1cfe74126425d076ce72e65540b8b/questionary-2.0.1-py3-none-any.whl", hash = "sha256:8ab9a01d0b91b68444dff7f6652c1e754105533f083cbe27597c8110ecc230a2", size = 34248 },
+]
+
+[[package]]
+name = "setuptools"
+version = "73.0.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/8d/37/f4d4ce9bc15e61edba3179f9b0f763fc6d439474d28511b11f0d95bab7a2/setuptools-73.0.1.tar.gz", hash = "sha256:d59a3e788ab7e012ab2c4baed1b376da6366883ee20d7a5fc426816e3d7b1193", size = 2526506 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/07/6a/0270e295bf30c37567736b7fca10167640898214ff911273af37ddb95770/setuptools-73.0.1-py3-none-any.whl", hash = "sha256:b208925fcb9f7af924ed2dc04708ea89791e24bde0d3020b27df0e116088b34e", size = 2346588 },
 ]
 
 [[package]]

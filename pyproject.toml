@@ -32,11 +32,11 @@ requires-python = ">=3.11"
 
 [tool.uv]
 dev-dependencies = [
-    "commitizen>=3.29.0",
+    "cz-conventional-gitmoji>=0.3.3",
 ]
 
 [tool.commitizen]
-name = "cz_conventional_commits"
+name = "cz_gitmoji"
 version = "1.2.0"
 tag_format = "v$version"
 version_files = [
