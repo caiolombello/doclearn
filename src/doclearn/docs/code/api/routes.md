@@ -156,3 +156,20 @@ Returns a JSON with the search results for content.
 #### Exceptions
 
 - `HTTPException`: Raised in case of an HTTP request error.
+
+### `GET /search/google`
+
+Perform a Google search.
+
+#### Query Parameters
+
+- `query` (str): Search term for Google.
+- `num_results` (int, optional): Number of results to be returned (default: 10).
+
+#### Response
+
+Returns a JSON with the list of search results from Google.
+
+#### Exceptions
+
+- `HTTPException`: Raised in case of an HTTP request error.

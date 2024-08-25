@@ -67,6 +67,16 @@ curl -X GET "http://localhost:8000/search/content?query=fastapi&owner=your_owner
 
 Replace `your_owner` and `your_repo` with the appropriate owner and repository names when making requests.
 
+### 8. `GET /search/google`
+
+Performs a Google search.
+
+```bash
+curl -X GET "http://localhost:8000/search/google?query=fastapi&num_results=10"
+```
+
+Replace `fastapi` with your desired search query and adjust `num_results` as needed.
+
 ## Notes
 
 - All endpoints require authentication. Make sure to include the appropriate access token in the request headers.

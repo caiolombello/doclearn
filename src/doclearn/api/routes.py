@@ -8,6 +8,7 @@ from doclearn.core.github_client import (
     get_github_client,
     search_markdown_content,
 )
+from doclearn.core.google_client import search_google
 from doclearn.core.filters import filter_markdown_files
 from datetime import datetime
 import httpx
@@ -164,3 +165,17 @@ async def search_markdown_content_route(
     except httpx.HTTPStatusError as e:
         logger.error(f"Erro ao pesquisar conteúdo: {str(e)}")
         raise HTTPException(status_code=e.response.status_code, detail=str(e))
+
+@router.get("/search/google")
+async def search_google_route(
+    query: str = Query(..., description="Search term for Google"),
+    num_results: int = Query(10, description="Number of results to be returned"),
+    client: httpx.AsyncClient = Depends(get_github_client),
+):
+    try:
+        results = await search_google(client, query, num_results)
+        logger.info(f"Google search completed. Total results: {len(results)}")
+        return {"results": results}
+    except HTTPException as e:
+        logger.error(f"Error during Google search: {str(e)}")
+        raise e
