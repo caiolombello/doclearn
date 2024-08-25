@@ -1,13 +1,13 @@
 ---
 
 title: routes  
-description: 'Endpoints for handling Markdown files and repository information.'
+description: 'Endpoints for handling Markdown files, repository information, and GitHub search functionality.'
 
 ---
 
 # routes.py
 
-This module defines the API routes for managing Markdown files and repository-related information. It uses the FastAPI framework to create asynchronous endpoints.
+This module defines the API routes for managing Markdown files, repository-related information, and searching GitHub repositories and Markdown content. It uses the FastAPI framework to create asynchronous endpoints.
 
 ## Endpoints
 
@@ -109,6 +109,49 @@ List all tags in the repository.
 #### Response
 
 Returns a JSON with the list of tags.
+
+#### Exceptions
+
+- `HTTPException`: Raised in case of an HTTP request error.
+
+---
+
+### `GET /search/repositories`
+
+Search for repositories on GitHub.
+
+#### Query Parameters
+
+- `query` (str): Search term for repositories.
+- `sort` (str, optional): Field for sorting (default: "stars").
+- `order` (str, optional): Sort order (default: "desc").
+- `per_page` (int, optional): Number of results per page (default: 30).
+- `page` (int, optional): Page number (default: 1).
+
+#### Response
+
+Returns a JSON with the search results for repositories.
+
+#### Exceptions
+
+- `HTTPException`: Raised in case of an HTTP request error.
+
+---
+
+### `GET /search/content`
+
+Search for content in Markdown files of a specific repository.
+
+#### Query Parameters
+
+- `query` (str): Search term in file content.
+- `owner` (str): Repository owner name.
+- `repo` (str): Repository name.
+- `ref` (str, optional): Repository reference (default: "main").
+
+#### Response
+
+Returns a JSON with the search results for content.
 
 #### Exceptions
 

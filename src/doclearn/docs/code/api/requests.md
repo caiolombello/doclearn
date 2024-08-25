@@ -1,70 +1,25 @@
+---
+
+title: Requests  
+description: 'Endpoints para gerenciamento de arquivos Markdown, informações de repositório e funcionalidades de pesquisa no GitHub.'
+
+---
+
 # Requests
 
-This document contains examples of `curl` commands to interact with the API endpoints, facilitating the use of routes for managing Markdown files and repository information.
+Este documento contém exemplos de comandos `curl` para interagir com os endpoints da API, facilitando o uso das rotas para gerenciar arquivos Markdown, informações do repositório e realizar pesquisas.
 
 ### 1. `GET /markdowns/`
 
-List Markdown files with filtering options.
+Lista arquivos Markdown com opções de filtragem.
 
 ```bash
 curl -X GET "http://localhost:8000/markdowns/?owner=your_owner&repo=your_repo&ref=main&name_query=README&min_size=100&max_size=5000&min_date=2023-01-01T00:00:00&max_date=2024-01-01T00:00:00&path_query=docs/"
 ```
-
-Let's break this `curl` command into several smaller commands, demonstrating different possibilities of using the parameters:
-
-#### 1.1. List Markdown files with reference filter (`ref`)
-
-```bash
-curl -X GET "http://localhost:8000/markdowns/?owner=your_owner&repo=your_repo&ref=main"
-```
-
-This command lists all Markdown files in the `main` branch.
-
-#### 1.2. Filter files by name (`name_query`)
-
-```bash
-curl -X GET "http://localhost:8000/markdowns/?owner=your_owner&repo=your_repo&ref=main&name_query=README"
-```
-
-This command filters the Markdown files whose name contains "README".
-
-#### 1.3. Filter files by minimum and maximum size (`min_size` and `max_size`)
-
-```bash
-curl -X GET "http://localhost:8000/markdowns/?owner=your_owner&repo=your_repo&ref=main&min_size=100&max_size=5000"
-```
-
-This command returns Markdown files that are between 100 bytes and 5000 bytes in size.
-
-#### 1.4. Filter files by modification date (`min_date` and `max_date`)
-
-```bash
-curl -X GET "http://localhost:8000/markdowns/?owner=your_owner&repo=your_repo&ref=main&min_date=2023-01-01T00:00:00&max_date=2024-01-01T00:00:00"
-```
-
-This command filters the Markdown files modified between January 1, 2023, and January 1, 2024.
-
-#### 1.5. Filter files by specific path (`path_query`)
-
-```bash
-curl -X GET "http://localhost:8000/markdowns/?owner=your_owner&repo=your_repo&ref=main&path_query=docs/"
-```
-
-This command lists Markdown files that are inside the `docs/` directory in the repository.
-
-#### 1.6. Combining multiple filters
-
-You can combine these parameters to further refine your search:
-
-```bash
-curl -X GET "http://localhost:8000/markdowns/?owner=your_owner&repo=your_repo&ref=main&name_query=README&min_size=100&max_size=5000&min_date=2023-01-01T00:00:00&max_date=2024-01-01T00:00:00&path_query=docs/"
-```
-
-This command returns Markdown files inside the `docs/` directory, whose name contains "README", with a size between 100 and 5000 bytes, modified between the specified dates, in the `main` branch.
 
 ### 2. `GET /markdowns/{file_path:path}`
 
-Retrieve the content of a specific Markdown file.
+Recupera o conteúdo de um arquivo Markdown específico.
 
 ```bash
 curl -X GET "http://localhost:8000/markdowns/docs/some_file.md?owner=your_owner&repo=your_repo&ref=main"
@@ -72,7 +27,7 @@ curl -X GET "http://localhost:8000/markdowns/docs/some_file.md?owner=your_owner&
 
 ### 3. `GET /markdowns/all/`
 
-Retrieve the content of all Markdown files in the repository.
+Recupera o conteúdo de todos os arquivos Markdown no repositório.
 
 ```bash
 curl -X GET "http://localhost:8000/markdowns/all/?owner=your_owner&repo=your_repo&ref=main"
@@ -80,7 +35,7 @@ curl -X GET "http://localhost:8000/markdowns/all/?owner=your_owner&repo=your_rep
 
 ### 4. `GET /branches/`
 
-List all branches in the repository.
+Lista todas as branches do repositório.
 
 ```bash
 curl -X GET "http://localhost:8000/branches/?owner=your_owner&repo=your_repo"
@@ -88,10 +43,32 @@ curl -X GET "http://localhost:8000/branches/?owner=your_owner&repo=your_repo"
 
 ### 5. `GET /tags/`
 
-List all tags in the repository.
+Lista todas as tags do repositório.
 
 ```bash
 curl -X GET "http://localhost:8000/tags/?owner=your_owner&repo=your_repo"
 ```
 
-Replace `your_owner` and `your_repo` with the appropriate owner and repository names when making the requests.
+### 6. `GET /search/repositories`
+
+Pesquisa repositórios no GitHub.
+
+```bash
+curl -X GET "http://localhost:8000/search/repositories?query=fastapi&sort=stars&order=desc&per_page=10&page=1"
+```
+
+### 7. `GET /search/content`
+
+Pesquisa conteúdo em arquivos Markdown de um repositório específico.
+
+```bash
+curl -X GET "http://localhost:8000/search/content?query=fastapi&owner=your_owner&repo=your_repo&ref=main"
+```
+
+Substitua `your_owner` e `your_repo` pelos nomes apropriados do proprietário e do repositório ao fazer as requisições.
+
+## Notas
+
+- Todos os endpoints requerem autenticação. Certifique-se de incluir o token de acesso apropriado nos cabeçalhos da requisição.
+- Os parâmetros de consulta podem ser combinados para refinar os resultados da pesquisa.
+- Para endpoints que aceitam um caminho de arquivo (`file_path`), certifique-se de codificar corretamente o caminho na URL.
