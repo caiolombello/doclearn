@@ -166,6 +166,7 @@ async def search_markdown_content_route(
         logger.error(f"Erro ao pesquisar conteúdo: {str(e)}")
         raise HTTPException(status_code=e.response.status_code, detail=str(e))
 
+
 @router.get("/search/google")
 async def search_google_route(
     query: str = Query(..., description="Search term for Google"),
