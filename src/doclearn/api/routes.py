@@ -1,4 +1,5 @@
 from fastapi import APIRouter, HTTPException, Query, Depends
+from doclearn.config import Config
 from doclearn.core.github_client import (
     fetch_markdown_files,
     fetch_file_content,
@@ -173,6 +174,11 @@ async def search_google_route(
     num_results: int = Query(10, description="Number of results to be returned"),
     client: httpx.AsyncClient = Depends(get_github_client),
 ):
+    if not Config.google_search_enabled:
+        raise HTTPException(
+            status_code=403,
+            detail="Google search is disabled. Enable it in the configuration to use this feature."
+        )
     try:
         results = await search_google(client, query, num_results)
         logger.info(f"Google search completed. Total results: {len(results)}")

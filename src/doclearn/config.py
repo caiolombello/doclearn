@@ -10,5 +10,6 @@ class Config:
     tokens = getenv("GITHUB_TOKENS", "").split(",")
     tokens = [token.strip() for token in tokens if token.strip()]
 
+    google_search_enabled = False
     google_api_key = getenv("GOOGLE_API_KEY")
     google_search_engine_id = getenv("GOOGLE_SEARCH_ENGINE_ID")
