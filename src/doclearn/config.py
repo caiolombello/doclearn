@@ -6,4 +6,5 @@ class Config:
     App settings.
     """
 
-    token = getenv("GITHUB_TOKEN")
+    tokens = getenv("GITHUB_TOKENS", "").split(",")
+    tokens = [token.strip() for token in tokens if token.strip()]
