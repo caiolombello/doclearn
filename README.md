@@ -92,11 +92,14 @@ To containerize the GitDoc AI application, you can use the provided Dockerfile. 
 
 ### API Endpoints
 
-- **GET `/markdowns/`**: Lists Markdown files in a repository with filtering options.
-- **GET `/markdowns/{file_path:path}`**: Retrieves the content of a specific Markdown file.
-- **GET `/markdowns/all/`**: Fetches the content of all Markdown files in a repository.
-- **GET `/branches/`**: Lists all branches in a repository.
-- **GET `/tags/`**: Lists all tags in a repository.
+- **GET `/markdowns/`**: Lista arquivos Markdown em um repositório com opções de filtragem.
+- **GET `/markdowns/{file_path:path}`**: Recupera o conteúdo de um arquivo Markdown específico.
+- **GET `/markdowns/all/`**: Busca o conteúdo de todos os arquivos Markdown em um repositório.
+- **GET `/branches/`**: Lista todas as branches em um repositório.
+- **GET `/tags/`**: Lista todas as tags em um repositório.
+- **GET `/search/repositories`**: Pesquisa repositórios no GitHub.
+- **GET `/search/content`**: Pesquisa conteúdo em arquivos Markdown de um repositório específico.
+- **GET `/search/google`**: Realiza uma pesquisa no Google.
 
 ## Configuration
 
